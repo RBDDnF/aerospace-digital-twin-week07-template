@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "verification",
       "claim",
       "reflection",
       "aiUse",
@@ -12,14 +11,14 @@
   },
   "record": {
     "id": "a9063da9-bfc1-4493-8eab-b6d820ac1d25",
-    "revision": "947",
+    "revision": "1045",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
       "version": "1.0.0"
     },
-    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"control moment + competing moment = inertia × target acceleration\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 × density × V^2\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"ms / q∞ × S × chord length\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"deltaCm × q∞ ×  S × chord length\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
-    "modelHash": "fnv1a-6ad2262c",
+    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"inertia*target_acceleration-competing_moment\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5*density *V*V\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"ms / q_inf*S*chord_length\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"deltaCm*q_inf*S*chord_length\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+    "modelHash": "fnv1a-7cf025dc",
     "fields": {
       "question": {
         "suppliedBy": "instructor",
@@ -69,7 +68,7 @@
       "verification": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "0.5*1.225*40*40 = 980 Pa"
       },
       "claim": {
         "suppliedBy": "student",
@@ -98,7 +97,7 @@
         "expressions": [
           {
             "name": "requiredMoment",
-            "expression": "control moment + competing moment = inertia × target acceleration",
+            "expression": "inertia*target_acceleration-competing_moment",
             "unit": "N*m"
           }
         ]
@@ -108,17 +107,17 @@
         "expressions": [
           {
             "name": "dynamicPressure",
-            "expression": "0.5 × density × V^2",
+            "expression": "0.5*density *V*V",
             "unit": "Pa"
           },
           {
             "name": "deltaCm",
-            "expression": "ms / q∞ × S × chord length",
+            "expression": "ms / q_inf*S*chord_length",
             "unit": "1"
           },
           {
             "name": "deltaMoment",
-            "expression": "deltaCm × q∞ ×  S × chord length",
+            "expression": "deltaCm*q_inf*S*chord_length",
             "unit": "N*m"
           }
         ]

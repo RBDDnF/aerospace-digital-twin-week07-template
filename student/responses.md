@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: a9063da9-bfc1-4493-8eab-b6d820ac1d25
 
-- Record revision: 947
+- Record revision: 1045
 
-- Model hash: fnv1a-6ad2262c
+- Model hash: fnv1a-7cf025dc
 
-- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -74,7 +74,9 @@ Tail pitches down, noise pitches up
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
 
 **Student response:**
-_Missing — no response supplied._
+```
+0.5*1.225*40*40 = 980 Pa
+```
 
 ### claim
 **Prompt:** What do your computed results support at the stated condition? Include a limitation.
@@ -109,7 +111,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "control moment + competing moment = inertia × target acceleration",
+          "expression": "inertia*target_acceleration-competing_moment",
           "unit": "N*m"
         }
       ]
@@ -119,17 +121,17 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "0.5 × density × V^2",
+          "expression": "0.5*density *V*V",
           "unit": "Pa"
         },
         {
           "name": "deltaCm",
-          "expression": "ms / q∞ × S × chord length",
+          "expression": "ms / q_inf*S*chord_length",
           "unit": "1"
         },
         {
           "name": "deltaMoment",
-          "expression": "deltaCm × q∞ ×  S × chord length",
+          "expression": "deltaCm*q_inf*S*chord_length",
           "unit": "N*m"
         }
       ]
