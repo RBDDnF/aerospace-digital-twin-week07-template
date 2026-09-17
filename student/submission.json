@@ -3,8 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "assumptions",
-      "model",
       "prediction",
       "verification",
       "claim",
@@ -15,7 +13,7 @@
   },
   "record": {
     "id": "a9063da9-bfc1-4493-8eab-b6d820ac1d25",
-    "revision": "191",
+    "revision": "761",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -47,7 +45,7 @@
       "assumptions": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Assumption: rudder and ailerons will not be used, constraining the motion to one axis\nWhat could invalidate it: external wind forcing trim or generating unwanted plane movement (roll or yaw)"
       },
       "inputs": {
         "suppliedBy": "instructor",
@@ -57,7 +55,7 @@
       "model": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "demand: control moment + competing moment = inertia × target acceleration.\ndynamic-pressure: 0.5 × density × V^2\ncoefficient equations: delta_Cm = ms / q∞ × S × chord length\nmoment equations: Ms = delta_Cms × q∞ ×  S × chord length"
       },
       "prediction": {
         "suppliedBy": "student",

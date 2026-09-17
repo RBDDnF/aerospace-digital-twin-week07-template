@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: a9063da9-bfc1-4493-8eab-b6d820ac1d25
 
-- Record revision: 191
+- Record revision: 761
 
 - Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: assumptions, model, prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -42,13 +42,21 @@ Because the plane rotates along the CG, as the tail drops, the nose will rise, e
 **Prompt:** Explain one supplied assumption and what could invalidate it: planar motion, fixed reference, local linear effectiveness, no trim or damping.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Assumption: rudder and ailerons will not be used, constraining the motion to one axis
+What could invalidate it: external wind forcing trim or generating unwanted plane movement (roll or yaw)
+```
 
 ### model
 **Prompt:** Write your demand, dynamic-pressure, coefficient and moment equations. Identify which quantities are supplied and which are unknown.
 
 **Student response:**
-_Missing — no response supplied._
+```
+demand: control moment + competing moment = inertia × target acceleration.
+dynamic-pressure: 0.5 × density × V^2
+coefficient equations: delta_Cm = ms / q∞ × S × chord length
+moment equations: Ms = delta_Cms × q∞ ×  S × chord length
+```
 
 ### prediction
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
