@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: a9063da9-bfc1-4493-8eab-b6d820ac1d25
 
-- Record revision: 761
+- Record revision: 947
 
-- Model hash: fnv1a-adee3cf8
+- Model hash: fnv1a-6ad2262c
 
-- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -54,15 +54,21 @@ What could invalidate it: external wind forcing trim or generating unwanted plan
 ```
 demand: control moment + competing moment = inertia × target acceleration.
 dynamic-pressure: 0.5 × density × V^2
-coefficient equations: delta_Cm = ms / q∞ × S × chord length
-moment equations: Ms = delta_Cms × q∞ ×  S × chord length
+coefficient equations: deltaCm = ms / q∞ × S × chord length
+moment equations: deltaM = deltaCm × q∞ ×  S × chord length
 ```
 
 ### prediction
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Elevator sign should be positive
+
+Halving the airspeed should reduce the moment of the elevator by a factor 4.
+
+Tail pitches down, noise pitches up
+```
 
 ### verification
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
@@ -103,7 +109,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "",
+          "expression": "control moment + competing moment = inertia × target acceleration",
           "unit": "N*m"
         }
       ]
@@ -113,17 +119,17 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "",
+          "expression": "0.5 × density × V^2",
           "unit": "Pa"
         },
         {
           "name": "deltaCm",
-          "expression": "",
+          "expression": "ms / q∞ × S × chord length",
           "unit": "1"
         },
         {
           "name": "deltaMoment",
-          "expression": "",
+          "expression": "deltaCm × q∞ ×  S × chord length",
           "unit": "N*m"
         }
       ]

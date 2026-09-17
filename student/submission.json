@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "prediction",
       "verification",
       "claim",
       "reflection",
@@ -13,14 +12,14 @@
   },
   "record": {
     "id": "a9063da9-bfc1-4493-8eab-b6d820ac1d25",
-    "revision": "761",
+    "revision": "947",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
       "version": "1.0.0"
     },
-    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
-    "modelHash": "fnv1a-adee3cf8",
+    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"control moment + competing moment = inertia × target acceleration\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 × density × V^2\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"ms / q∞ × S × chord length\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"deltaCm × q∞ ×  S × chord length\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+    "modelHash": "fnv1a-6ad2262c",
     "fields": {
       "question": {
         "suppliedBy": "instructor",
@@ -55,12 +54,12 @@
       "model": {
         "suppliedBy": "student",
         "locked": false,
-        "text": "demand: control moment + competing moment = inertia × target acceleration.\ndynamic-pressure: 0.5 × density × V^2\ncoefficient equations: delta_Cm = ms / q∞ × S × chord length\nmoment equations: Ms = delta_Cms × q∞ ×  S × chord length"
+        "text": "demand: control moment + competing moment = inertia × target acceleration.\ndynamic-pressure: 0.5 × density × V^2\ncoefficient equations: deltaCm = ms / q∞ × S × chord length\nmoment equations: deltaM = deltaCm × q∞ ×  S × chord length"
       },
       "prediction": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Elevator sign should be positive\n\nHalving the airspeed should reduce the moment of the elevator by a factor 4.\n\nTail pitches down, noise pitches up"
       },
       "execution": {
         "suppliedBy": "automatic",
@@ -99,7 +98,7 @@
         "expressions": [
           {
             "name": "requiredMoment",
-            "expression": "",
+            "expression": "control moment + competing moment = inertia × target acceleration",
             "unit": "N*m"
           }
         ]
@@ -109,17 +108,17 @@
         "expressions": [
           {
             "name": "dynamicPressure",
-            "expression": "",
+            "expression": "0.5 × density × V^2",
             "unit": "Pa"
           },
           {
             "name": "deltaCm",
-            "expression": "",
+            "expression": "ms / q∞ × S × chord length",
             "unit": "1"
           },
           {
             "name": "deltaMoment",
-            "expression": "",
+            "expression": "deltaCm × q∞ ×  S × chord length",
             "unit": "N*m"
           }
         ]
